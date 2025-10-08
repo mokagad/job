@@ -1,4 +1,4 @@
-name: Run Docker Image
+name: ci
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: "0 */2 * * *" 
 
 jobs:
-  run-docker:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: pull image
