@@ -27,7 +27,7 @@ jobs:
       
       - name: Create .env file
         run: |
-          echo $LAST_RUN_INFO
+          echo "last_run_info=${LAST_RUN_INFO}" >> .env
           echo "smtp_email=${{ secrets.SMTP_EMAIL }}" >> .env
           echo "smtp_password=${{ secrets.SMTP_PASSWORD }}" >> .env
           echo "receiver_email=${{ secrets.RECEIVER_EMAIL }}" >> .env
