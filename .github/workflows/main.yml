@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v5.0.0
 
       - name: install gh cli
-        run: apt update && apt install gh -y
+        run: sudo apt update && sudo apt install gh -y
       
       - name: Create .env file
         run: |
