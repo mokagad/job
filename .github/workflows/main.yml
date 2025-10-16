@@ -17,6 +17,11 @@ jobs:
 
       - name: install gh cli
         run: sudo apt update && sudo apt install gh -y
+
+      - name: get info about current and last run
+        run: gh auth status
+        env: 
+          GH_TOKEN: ${{ github.token }}
       
       - name: Create .env file
         run: |
