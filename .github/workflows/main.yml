@@ -12,8 +12,8 @@ jobs:
       - name: pull image
         run: docker pull ahmedhesham301/jobfit-ai:latest
 
-      - name: checkout
-        uses: actions/checkout@v5.0.0
+      # - name: checkout
+      #   uses: actions/checkout@v5.0.0
 
       # - name: install gh cli
       #   run: sudo apt update && sudo apt install gh -y
