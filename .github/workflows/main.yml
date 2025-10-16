@@ -20,11 +20,10 @@ jobs:
 
       - name: get info about current and last run
         run: |
-          last_run_info=$(gh run list --workflow main.yml --limit 2 --json createdAt,status,conclusion --repo $repo)
+          last_run_info=$(gh run list --workflow main.yml --limit 2 --json createdAt,status,conclusion --repo mokagad/job)
           echo "LAST_RUN_INFO=$last_run_info" >> $GITHUB_ENV
         env: 
           GH_TOKEN: ${{ github.token }}
-          repo: ${{ github.action_repository }}
       
       - name: Create .env file
         run: |
