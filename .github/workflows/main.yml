@@ -11,6 +11,13 @@ jobs:
     steps:
       - name: pull image
         run: docker pull ahmedhesham301/jobfit-ai:latest
+
+      - name: checkout
+        uses: actions/checkout@v5.0.0
+
+      - name: install gh cli
+        run: apt update && apt install gh -y
+      
       - name: Create .env file
         run: |
           echo "smtp_email=${{ secrets.SMTP_EMAIL }}" >> .env
