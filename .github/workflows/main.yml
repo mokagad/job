@@ -19,9 +19,10 @@ jobs:
       #   run: sudo apt update && sudo apt install gh -y
 
       - name: get info about current and last run
-        run: gh run list --workflow "${{ github.workflow }}" --limit 2 --json createdAt,status,conclusion --repo "${{ github.action_repository }}"
+        run: gh run list --workflow "${{ github.workflow }}" --limit 2 --json createdAt,status,conclusion --repo $repo
         env: 
           GH_TOKEN: ${{ github.token }}
+          repo: ${{ github.action_repository }}
       
       - name: Create .env file
         run: |
