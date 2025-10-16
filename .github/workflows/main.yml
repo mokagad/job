@@ -19,7 +19,7 @@ jobs:
         run: sudo apt update && sudo apt install gh -y
 
       - name: get info about current and last run
-        run: gh auth status
+        run: gh run list --workflow ${{ GITHUB_WORKFLOW }} --limit 2 --json createdAt,status,conclusion
         env: 
           GH_TOKEN: ${{ github.token }}
       
