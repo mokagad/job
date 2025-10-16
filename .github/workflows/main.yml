@@ -19,14 +19,16 @@ jobs:
       #   run: sudo apt update && sudo apt install gh -y
 
       - name: get info about current and last run
-        run: gh run list --workflow main.yml --limit 2 --json createdAt,status,conclusion --repo $repo >> $last_run_info
+        run: |
+          last_run_info=$(gh run list --workflow main.yml --limit 2 --json createdAt,status,conclusion --repo $repo)
+          echo "LAST_RUN_INFO=$last_run_info" >> $GITHUB_ENV
         env: 
           GH_TOKEN: ${{ github.token }}
           repo: ${{ github.action_repository }}
       
       - name: Create .env file
         run: |
-          echo $last_run_info
+          echo $LAST_RUN_INFO
           echo "smtp_email=${{ secrets.SMTP_EMAIL }}" >> .env
           echo "smtp_password=${{ secrets.SMTP_PASSWORD }}" >> .env
           echo "receiver_email=${{ secrets.RECEIVER_EMAIL }}" >> .env
