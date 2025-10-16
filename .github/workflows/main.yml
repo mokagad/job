@@ -12,14 +12,14 @@ jobs:
       - name: pull image
         run: docker pull ahmedhesham301/jobfit-ai:latest
 
-      - name: checkout
-        uses: actions/checkout@v5.0.0
+      # - name: checkout
+      #   uses: actions/checkout@v5.0.0
 
-      - name: install gh cli
-        run: sudo apt update && sudo apt install gh -y
+      # - name: install gh cli
+      #   run: sudo apt update && sudo apt install gh -y
 
       - name: get info about current and last run
-        run: gh run list --workflow ${{ GITHUB_WORKFLOW }} --limit 2 --json createdAt,status,conclusion
+        run: gh auth status 
         env: 
           GH_TOKEN: ${{ github.token }}
       
