@@ -27,6 +27,7 @@ jobs:
           echo "receiver_email=${{ secrets.RECEIVER_EMAIL }}" >> .env
           echo "api_keys=${{ secrets.API_KEYS }}" >> .env
           mkdir ~output
+          pwd ~output
       - name: Run container
         run: docker run -v "~output:/output" --env-file .env ahmedhesham301/jobfit-ai:latest
       - name: upload Artifact
