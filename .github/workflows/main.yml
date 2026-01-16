@@ -40,3 +40,4 @@ jobs:
           # Required.
           path: /home/runner/work/job/job/output/
           retention-days: 1
+          compression-level: 0
