@@ -26,9 +26,9 @@ jobs:
           echo "smtp_password=${{ secrets.SMTP_PASSWORD }}" >> .env
           echo "receiver_email=${{ secrets.RECEIVER_EMAIL }}" >> .env
           echo "api_keys=${{ secrets.API_KEYS }}" >> .env
-          mkdir /output
+          mkdir ~output
       - name: Run container
-        run: docker run -v "/output:/output" --env-file .env ahmedhesham301/jobfit-ai:latest
+        run: docker run -v "~output:/output" --env-file .env ahmedhesham301/jobfit-ai:latest
       - name: upload Artifact
         uses: actions/upload-artifact@v6
         with:
@@ -38,5 +38,5 @@ jobs:
       
           # A file, directory or wildcard pattern that describes what to upload
           # Required.
-          path: /output
+          path: ~output/
           retention-days: 1
