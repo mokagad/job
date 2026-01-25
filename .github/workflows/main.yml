@@ -39,4 +39,4 @@ jobs:
           # A file, directory or wildcard pattern that describes what to upload
           # Required.
           path: /home/runner/work/job/job/output/
-          retention-days: 2
+          retention-days: 3
