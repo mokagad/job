@@ -2,7 +2,7 @@
 # pip install google-genai
 
 from google import genai
-from google.genai import types
+from google.genai import types 
 
 def generate(description, instruction, api_key):
     client = genai.Client(api_key=api_key)
